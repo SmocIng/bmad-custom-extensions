@@ -202,7 +202,33 @@ BMad Custom Workflowsのコマンドは、使用するAIツールによって記
 
 ### Phase 4: Implementation（実装）
 
-#### 1. UATシナリオ作成
+#### 1. 技術的負債レジストリ更新
+
+**タイミング**: Retrospectiveワークフロー実行後
+
+| 項目 | 内容 |
+|------|------|
+| **エージェント** | SM |
+| **必須度** | 推奨（技術的負債がある場合） |
+| **成果物** | `technical-debt-registry.md`更新、Retrospectiveドキュメント更新 |
+| **ClaudeCode** | `/bmad:custom:workflows:update-technical-debt-registry` |
+| **Cursor** | `@.bmad-custom/workflows/update-technical-debt-registry` |
+| **Codex** | `/bmad-custom-workflows-update-technical-debt-registry` |
+
+**目的**: Retrospectiveワークフロー実行後、技術的負債を一元管理するレジストリに反映します。
+
+**機能**:
+- Retrospectiveドキュメントから技術的負債を抽出
+- 技術的負債レジストリに新しいエントリを追加
+- TD-XXX形式のIDを自動付与
+- 優先度別セクションに配置
+- Retrospectiveドキュメントの技術的負債セクションを参照形式に更新
+
+**成果物**:
+- `docs/technical-debt-registry.md`: 技術的負債レジストリの更新
+- Retrospectiveドキュメント: 技術的負債セクションの参照形式への更新
+
+#### 2. UATシナリオ作成
 
 **タイミング**: Epic完了時、Retrospectiveの前後
 
@@ -225,7 +251,7 @@ BMad Custom Workflowsのコマンドは、使用するAIツールによって記
 - `docs/sprint-artifacts/epic-{epic_number}-uat-plan.md`: UAT計画
 - `docs/sprint-artifacts/epic-{epic_number}-verification-scenario.md`: ユーザー実行可能な検証シナリオ
 
-#### 2. UAT自動実行
+#### 3. UAT自動実行
 
 **タイミング**: `create-uat-scenario`ワークフローの実行後
 
@@ -262,6 +288,7 @@ BMad Custom Workflowsのコマンドは、使用するAIツールによって記
 - [add-story-to-epic](./workflows/add-story-to-epic/README.md)
 - [create-uat-scenario](./workflows/create-uat-scenario/README.md)
 - [execute-uat](./workflows/execute-uat/README.md)
+- [update-technical-debt-registry](./workflows/update-technical-debt-registry/README.md)
 
 ---
 
@@ -300,7 +327,19 @@ BMad Custom Workflowsのコマンドは、使用するAIツールによって記
 # Story内容: 会話状態管理のリファクタリング
 ```
 
-### 例4: UATシナリオ作成と実行
+### 例4: 技術的負債レジストリ更新
+
+```bash
+# Cursor
+@.bmad-custom/workflows/update-technical-debt-registry
+
+# プロンプト例:
+# Epic 4のRetrospectiveが完了しました。
+# Retrospectiveファイル: docs/sprint-artifacts/epic-4-retrospective.md
+# Epic番号: 4
+```
+
+### 例5: UATシナリオ作成と実行
 
 ```bash
 # Step 1: UATシナリオ作成
