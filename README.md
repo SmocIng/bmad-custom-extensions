@@ -131,6 +131,15 @@ npm run bmad-custom:install
 
 各ワークフローの個別の使用方法は、各ワークフローのREADME.mdを参照してください。
 
+### ガイドドキュメント
+
+詳細なセットアップ、インストール、統合方法については、[.guide/README.md](./.guide/README.md)を参照してください。
+
+`.guide/`ディレクトリには以下のドキュメントが含まれています：
+- インストール・セットアップガイド
+- ワークフロー統合ガイド
+- 拡張計画とレポート
+
 ### ワークフローの実行タイミング
 
 - **Phase 2 (Planning)**: `hypothesis-validation-checklist`, `validate-mvp-scope`
