@@ -1,0 +1,35 @@
+---
+description: BMAD Custom Workflow: llm-integration-pattern-spike
+globs: 
+alwaysApply: false
+---
+
+name: llm-integration-pattern-spike
+description: "Create a spike to validate LLM output interpretation architecture patterns. This workflow helps identify the best approach for LLM output parsing, structured output validation, and intent classification before implementation."
+author: "BMad Custom"
+
+# Important: This workflow should be executed in Phase 2.5 (Technical Prototyping phase).
+# It validates LLM integration patterns early to prevent output interpretation issues.
+
+# Critical variables from config (reuse existing bmm resources)
+config_source: "{project-root}/.bmad/bmm/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+sprint_artifacts: "{config_source}:sprint_artifacts"
+
+# Workflow components (placed under .bmad-custom)
+installed_path: "{project-root}/.bmad-custom/workflows/llm-integration-pattern-spike"
+instructions: "{installed_path}/instructions.md"
+llm_pattern_report_template: "{installed_path}/llm-pattern-report-template.md"
+
+# Variables and inputs
+variables:
+  prd_file: "{output_folder}/prd.md"
+  llm_pattern_report_file: "{output_folder}/llm-integration-pattern-report.md"
+
+# Reference to existing bmm resources
+bmm_template_reference: "{project-root}/.bmad/bmm/workflows/3-solutioning/architecture/template.md"
+
+standalone: true
