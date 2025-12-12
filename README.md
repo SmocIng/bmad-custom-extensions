@@ -164,6 +164,22 @@ npm run bmad-custom:install
 
 ### ガイドドキュメント
 
+#### BMad Method本体の使い方
+
+- **[BMAD_METHOD_USAGE_GUIDE.md](./BMAD_METHOD_USAGE_GUIDE.md)** - BMad Method本体の完全ガイド
+  - フルワークフローの4つのフェーズ
+  - 3つの開発トラック
+  - 実際の使用例
+  - 重要な原則
+
+#### カスタムワークフローの使い方
+
+- **[USAGE_GUIDE.md](./USAGE_GUIDE.md)** - カスタムワークフローの使用ガイド
+  - 各ワークフローの実行タイミング
+  - 実行例
+
+#### セットアップ・統合ガイド
+
 詳細なセットアップ、インストール、統合方法については、[.guide/README.md](./.guide/README.md)を参照してください。
 
 `.guide/`ディレクトリには以下のドキュメントが含まれています：
