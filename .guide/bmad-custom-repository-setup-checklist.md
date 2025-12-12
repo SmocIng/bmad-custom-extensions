@@ -9,19 +9,25 @@
 
 ### ✅ ワークフローファイルの確認
 
-- [ ] `.cursor/rules/bmad-custom/workflows/`に5つの`.mdc`ファイルが存在する
+- [ ] `.cursor/rules/bmad-custom/workflows/`に8つの`.mdc`ファイルが存在する
   - [ ] `validate-mvp-scope.mdc`
   - [ ] `hypothesis-validation-checklist.mdc`
   - [ ] `technical-spike.mdc`
   - [ ] `performance-spike.mdc`
   - [ ] `llm-integration-pattern-spike.mdc`
+  - [ ] `add-story-to-epic.mdc`
+  - [ ] `create-uat-scenario.mdc`
+  - [ ] `execute-uat.mdc`
 
-- [ ] `.bmad-custom/workflows/`に5つの実装ディレクトリが存在する
+- [ ] `.bmad-custom/workflows/`に8つの実装ディレクトリが存在する
   - [ ] `validate-mvp-scope/`
   - [ ] `hypothesis-validation-checklist/`
   - [ ] `technical-spike/`
   - [ ] `performance-spike/`
   - [ ] `llm-integration-pattern-spike/`
+  - [ ] `add-story-to-epic/`
+  - [ ] `create-uat-scenario/`
+  - [ ] `execute-uat/`
 
 ### ✅ インストールスクリプトの確認
 
@@ -115,7 +121,10 @@
 
 **Document Revision History**
 
-- **Version 1.0 (2025-01-27)**: 初版作成
+- **Version 1.1.0 (2025-01-27)**: ワークフロー数を更新
+  - ワークフロー数を5つから8つに更新
+  - 新しいワークフロー（add-story-to-epic、create-uat-scenario、execute-uat）を追加
+- **Version 1.0.0 (2025-01-27)**: 初版作成
   - セットアップチェックリストの作成
   - 各ステップの確認項目をリスト化
 

@@ -30,9 +30,27 @@ BMad Methodの欠点を補完するカスタムワークフローの拡張パッ
 
 ## 前提条件
 
-- BMad Methodが既にセットアップされていること
+- **BMad Methodが既にセットアップされていること**（必須）
 - Gitがインストールされていること
 - Node.jsとnpmがインストールされていること（インストールスクリプト用）
+
+### BMad Method本体のインストール
+
+BMad Methodがまだインストールされていない場合、まずBMad Method本体をインストールしてください：
+
+```bash
+# プロジェクトルートで実行
+# BMad MethodをGit Submoduleとして追加
+git submodule add <bmad-method-repository-url> .bmad-method
+
+# サブモジュールを初期化
+git submodule update --init --recursive
+
+# BMad Methodのセットアップ手順に従ってセットアップを完了
+# （BMad MethodのREADME.mdまたはセットアップガイドを参照）
+```
+
+BMad Methodのインストールが完了したら、以下の手順でBMad Custom Extensionsをインストールできます。
 
 ## インストール方法
 

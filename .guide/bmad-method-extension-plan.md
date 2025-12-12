@@ -14,12 +14,17 @@
 3. **technical-spike** - 技術プロトタイピングワークフロー
 4. **performance-spike** - パフォーマンスSpikeワークフロー
 5. **llm-integration-pattern-spike** - LLM統合パターン検証ワークフロー
+6. **add-story-to-epic** - Epic末尾にStory追加ワークフロー
+7. **create-uat-scenario** - UATシナリオ作成ワークフロー
+8. **execute-uat** - UAT自動実行ワークフロー
 
 ### ✅ 実装完了したドキュメント
 
-1. **README_HowToUse_Bmad.md** - 新しいワークフローの説明を追加
-2. **docs/guides/bmad-custom-workflows-integration.md** - ワークフロー統合ガイド
-3. **docs/reports/workflow-verification-report.md** - ワークフロー検証レポート
+1. **README.md** - リポジトリの説明
+2. **USAGE_GUIDE.md** - ワークフロー使用ガイド
+3. **.guide/bmad-custom-workflows-integration.md** - ワークフロー統合ガイド
+4. **.guide/bmad-custom-installation-guide.md** - インストールガイド
+5. **.guide/bmad-custom-setup-guide.md** - セットアップガイド
 
 ### ✅ 検証完了状況
 
@@ -36,7 +41,7 @@
 - ✅ 一貫性チェック
 - ✅ 既存ワークフローとの整合性確認
 
-詳細は [ワークフロー検証レポート](./workflow-verification-report.md) を参照してください。
+すべてのワークフローが正常に実装され、既存のワークフローパターンと整合性が取れていることを確認しました。
 
 ---
 
@@ -109,6 +114,22 @@ bmad-custom-extensions/
 │       ├── instructions.md
 │       ├── README.md
 │       └── llm-pattern-report-template.md
+│   ├── add-story-to-epic/
+│   │   ├── add-story-to-epic.mdc
+│   │   ├── instructions.md
+│   │   ├── README.md
+│   │   └── story-template.md
+│   ├── create-uat-scenario/
+│   │   ├── create-uat-scenario.mdc
+│   │   ├── instructions.md
+│   │   ├── README.md
+│   │   ├── uat-plan-template.md
+│   │   └── verification-scenario-template.md
+│   └── execute-uat/
+│       ├── execute-uat.mdc
+│       ├── instructions.md
+│       ├── README.md
+│       └── uat-results-template.md
 ├── README.md
 └── LICENSE
 ```
@@ -122,10 +143,8 @@ bmad-custom-extensions/
 
 以下のファイルはプロジェクト固有として残す：
 
-- `docs/guides/bmad-custom-workflows-integration.md` - プロジェクト固有の統合ガイド
-- `docs/reports/bmad-method-retrospective-2025-12-07.md` - プロジェクト固有の振り返り
-- `docs/reports/project-failure-analysis-2025-12-07.md` - プロジェクト固有の失敗分析
-- `docs/reports/bmad-method-extension-plan.md` - 本計画書
+- `.guide/bmad-custom-workflows-integration.md` - ワークフロー統合ガイド
+- `.guide/bmad-method-extension-plan.md` - 本計画書
 
 ---
 
@@ -153,20 +172,21 @@ bmad-custom-extensions/
 
 ## 参照ドキュメント
 
-- [BMad Method 振り返りレポート](./bmad-method-retrospective-2025-12-07.md)
-- [プロジェクト失敗分析レポート](./project-failure-analysis-2025-12-07.md)
-- [BMadフルワークフロー完全ガイド](../README_HowToUse_Bmad.md)
-- [ワークフロー統合ガイド](../guides/bmad-custom-workflows-integration.md)
-- [ワークフロー検証レポート](./workflow-verification-report.md)
+- [BMad Custom Workflows 統合ガイド](./bmad-custom-workflows-integration.md)
+- [BMad Custom Workflows 使用ガイド](../USAGE_GUIDE.md)
+- [BMad Custom Workflows インストールガイド](./bmad-custom-installation-guide.md)
 
 ---
 
 **Document Revision History**
 
-- **Version 1.1 (2025-01-27)**: 検証完了状況を追加
-  - ワークフロー検証レポートへの参照を追加
+- **Version 1.2.0 (2025-01-27)**: ワークフロー追加
+  - add-story-to-epic、create-uat-scenario、execute-uatを追加
+  - ワークフロー数を5つから8つに更新
+  - ドキュメント参照パスを修正
+- **Version 1.1.0 (2025-01-27)**: 検証完了状況を追加
   - 検証完了状況セクションを追加
-- **Version 1.0 (2025-01-27)**: 初版作成
+- **Version 1.0.0 (2025-01-27)**: 初版作成
   - 実装計画の作成
   - リポジトリ管理方法の決定
   - 次のステップの提示

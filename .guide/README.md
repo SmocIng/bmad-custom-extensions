@@ -36,31 +36,8 @@
 
 ### セットアップ関連
 
-- **[bmad-custom-repository-ready-summary.md](./bmad-custom-repository-ready-summary.md)**
-  - リポジトリ準備状況のサマリー
-
 - **[bmad-custom-repository-setup-checklist.md](./bmad-custom-repository-setup-checklist.md)**
   - リポジトリセットアップのチェックリスト
-
-- **[bmad-custom-setup-complete.md](./bmad-custom-setup-complete.md)**
-  - セットアップ完了の確認
-
-- **[github-repository-creation-summary.md](./github-repository-creation-summary.md)**
-  - GitHubリポジトリ作成完了のサマリー
-  - プロジェクト統合手順
-
----
-
-## ドキュメントの参照元
-
-これらのドキュメントは、元々`docs/guides/`と`docs/reports/`配下にあったものを、`.bmad-custom-extensions/.guide/`に転記したものです。
-
-元のプロジェクトでは、以下のパスに存在していました：
-- `docs/guides/bmad-custom-*.md`
-- `docs/reports/bmad-custom-*.md`
-- `docs/reports/bmad-method-extension-plan.md`
-- `docs/reports/repository-management-proposal.md`
-- `docs/reports/github-repository-creation-summary.md`
 
 ---
 

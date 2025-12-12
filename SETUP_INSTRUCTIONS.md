@@ -7,6 +7,30 @@
 - **GitHub URL**: https://github.com/SmocIng/bmad-custom-extensions
 - **バージョン**: v1.0.0
 
+## 前提条件
+
+BMad Custom Extensionsをインストールする前に、**BMad Method本体**が既にセットアップされている必要があります。
+
+### BMad Method本体のインストール
+
+BMad Methodがまだインストールされていない場合、以下の手順でインストールしてください：
+
+```bash
+# 1. プロジェクトルートで実行
+# BMad MethodをGit Submoduleとして追加
+git submodule add https://github.com/your-org/bmad-method.git .bmad-method
+
+# 2. サブモジュールを初期化
+git submodule update --init --recursive
+
+# 3. BMad Methodのセットアップ手順に従ってセットアップを完了
+# （BMad MethodのREADME.mdまたはセットアップガイドを参照）
+```
+
+**注意**: BMad MethodのリポジトリURLは、実際のリポジトリURLに置き換えてください。
+
+BMad Methodのインストールが完了したら、以下の手順でBMad Custom Extensionsをインストールできます。
+
 ## プロジェクトへの統合手順
 
 ### Step 1: サブモジュールとして追加

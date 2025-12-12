@@ -16,6 +16,9 @@
 3. **technical-spike**: 技術プロトタイピング
 4. **performance-spike**: パフォーマンスSpike
 5. **llm-integration-pattern-spike**: LLM統合パターン検証
+6. **add-story-to-epic**: Epic末尾にStory追加
+7. **create-uat-scenario**: UATシナリオ作成
+8. **execute-uat**: UAT自動実行
 
 ---
 
@@ -146,6 +149,99 @@
 
 ---
 
+### Phase 3: Solutioning（ソリューション設計）
+
+#### add-story-to-epic
+
+**タイミング**: `create-epics-and-stories`実施後、要件変更・技術的負債対応時
+
+**目的**: 完了したEpicまたは実施中のEpicにStoryを追加
+
+**実行方法**:
+```bash
+# Cursor
+@.bmad-custom/workflows/add-story-to-epic
+
+# ClaudeCode
+/bmad:custom:workflows:add-story-to-epic
+
+# Codex
+/bmad-custom-workflows-add-story-to-epic
+```
+
+**成果物**: `epics.md`更新、`sprint-status.yaml`更新
+
+**使用タイミング**:
+- `create-epics-and-stories`実施後に、要件変更が発生した場合
+- 技術的負債対応のStoryを追加する場合
+- 完了したEpicまたは実施中のEpicにStoryを追加する場合
+
+**機能**:
+- 指定したEpicの末尾に新しいStoryを追加
+- Story番号を自動生成（例: Epic 4の最後が4.7なら、4.8を生成）
+- `epics.md`のEpic Summaryと合計ストーリー数を自動更新
+- `sprint-status.yaml`に新しいStoryを`backlog`状態で追加
+- 技術的負債管理番号（TD-XXX）が指定されている場合、Story名の頭に管理番号を付与
+
+---
+
+### Phase 4: Implementation（実装）
+
+#### create-uat-scenario
+
+**タイミング**: Epic完了時、Retrospectiveの前後
+
+**目的**: Epic完了時にUAT計画とユーザー実行可能な検証シナリオを作成
+
+**実行方法**:
+```bash
+# Cursor
+@.bmad-custom/workflows/create-uat-scenario
+
+# ClaudeCode
+/bmad:custom:workflows:create-uat-scenario
+
+# Codex
+/bmad-custom-workflows-create-uat-scenario
+```
+
+**成果物**: `epic-{epic_number}-uat-plan.md`, `epic-{epic_number}-verification-scenario.md`
+
+**機能**:
+- 既存のUAT計画を参照して構造を理解
+- 既存の検証シナリオを参考にして、ユーザー実行可能なシナリオを作成
+- UAT計画と検証シナリオを生成
+- 検証シナリオの実施を促す
+
+#### execute-uat
+
+**タイミング**: `create-uat-scenario`ワークフローの実行後
+
+**目的**: 作成されたUATをオートメーションで実行し、結果を生成
+
+**実行方法**:
+```bash
+# Cursor
+@.bmad-custom/workflows/execute-uat
+
+# ClaudeCode
+/bmad:custom:workflows:execute-uat
+
+# Codex
+/bmad-custom-workflows-execute-uat
+```
+
+**成果物**: `epic-{epic_number}-uat-results.md`
+
+**機能**:
+- UAT計画と検証シナリオを読み込み
+- テストケースを自動実行（APIテスト、UIテスト、統合テスト、パフォーマンステスト）
+- テスト結果を記録
+- パフォーマンス指標と機能品質指標を収集
+- 受け入れ判定を自動生成
+
+---
+
 ## ワークフロー間の依存関係
 
 ### 推奨実行順序
@@ -167,6 +263,13 @@ Phase 2.5: Technical Prototyping (オプション)
   └─ llm-integration-pattern-spike (LLMプロジェクトの場合)
   ↓
 Phase 3: Solutioning
+  ├─ create-epics-and-stories
+  └─ add-story-to-epic (要件変更・技術的負債対応時)
+  ↓
+Phase 4: Implementation
+  ├─ Epic実装完了
+  ├─ create-uat-scenario (Epic完了時)
+  └─ execute-uat (UAT実行)
 ```
 
 ### 依存関係マトリクス
@@ -178,6 +281,9 @@ Phase 3: Solutioning
 | technical-spike | PRD作成完了 | validate-mvp-scope（推奨） |
 | performance-spike | PRD作成完了、NFR定義 | validate-mvp-scope（推奨） |
 | llm-integration-pattern-spike | PRD作成完了、LLM要件 | technical-spike（推奨） |
+| add-story-to-epic | create-epics-and-stories完了 | なし |
+| create-uat-scenario | Epic実装完了 | なし |
+| execute-uat | create-uat-scenario完了 | create-uat-scenario |
 
 ---
 
@@ -232,6 +338,12 @@ Phase 3: Solutioning
    - technical-spike (推奨)
    - performance-spike (パフォーマンス要件がある場合)
 6. Phase 3: Solutioning
+   - create-epics-and-stories
+   - add-story-to-epic (必要に応じて)
+7. Phase 4: Implementation
+   - Epic実装完了
+   - create-uat-scenario
+   - execute-uat
 ```
 
 ---
@@ -299,6 +411,41 @@ Phase 3: Solutioning
 
 **詳細**: [README](.bmad-custom/workflows/llm-integration-pattern-spike/README.md)
 
+### add-story-to-epic
+
+**目的**: 完了したEpicまたは実施中のEpicにStoryを追加
+
+**機能**:
+- 指定したEpicの末尾に新しいStoryを追加
+- Story番号を自動生成
+- `epics.md`と`sprint-status.yaml`を自動更新
+- 技術的負債管理番号の付与
+
+**詳細**: [README](.bmad-custom/workflows/add-story-to-epic/README.md)
+
+### create-uat-scenario
+
+**目的**: Epic完了時にUAT計画とユーザー実行可能な検証シナリオを作成
+
+**機能**:
+- UAT計画の作成
+- ユーザー実行可能な検証シナリオの作成
+- 既存のUAT計画・シナリオを参考にした構造化
+
+**詳細**: [README](.bmad-custom/workflows/create-uat-scenario/README.md)
+
+### execute-uat
+
+**目的**: 作成されたUATをオートメーションで実行し、結果を生成
+
+**機能**:
+- テストケースの自動実行
+- テスト結果の記録
+- パフォーマンス指標と機能品質指標の収集
+- 受け入れ判定の自動生成
+
+**詳細**: [README](.bmad-custom/workflows/execute-uat/README.md)
+
 ---
 
 ## トラブルシューティング
@@ -340,17 +487,19 @@ Phase 3: Solutioning
 
 ## 関連ドキュメント
 
-- [BMad Method 振り返りレポート](../reports/bmad-method-retrospective-2025-12-07.md)
-- [プロジェクト失敗分析レポート](../reports/project-failure-analysis-2025-12-07.md)
-- [BMad Method拡張ワークフロー実装計画](../reports/bmad-method-extension-plan.md)
-- [ワークフロー検証レポート](../reports/workflow-verification-report.md)
-- [BMadフルワークフロー完全ガイド](../../README_HowToUse_Bmad.md)
+- [BMad Method拡張ワークフロー実装計画](./bmad-method-extension-plan.md)
+- [BMad Custom Workflows 使用ガイド](../USAGE_GUIDE.md)
+- [BMad Custom Workflows インストールガイド](./bmad-custom-installation-guide.md)
 
 ---
 
 **Document Revision History**
 
-- **Version 1.0 (2025-01-27)**: 初版作成
+- **Version 1.1.0 (2025-01-27)**: ワークフロー追加
+  - add-story-to-epic、create-uat-scenario、execute-uatを追加
+  - ワークフロー数を5つから8つに更新
+  - 依存関係マトリクスと実行パターンを更新
+- **Version 1.0.0 (2025-01-27)**: 初版作成
   - カスタムワークフローの統合ガイド
   - 実行タイミングと依存関係の説明
   - 推奨実行パターンの提示

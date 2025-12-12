@@ -7,9 +7,64 @@
 
 ## 前提条件
 
-- ✅ bmad-methodが既にセットアップされていること
+- ✅ **bmad-methodが既にセットアップされていること**（必須）
 - ✅ Gitがインストールされていること
 - ✅ Node.jsとnpmがインストールされていること
+
+---
+
+## BMad Method本体のインストール
+
+BMad Methodがまだインストールされていない場合、以下の手順でインストールしてください。
+
+### Step 1: BMad Methodリポジトリの確認
+
+BMad MethodのリポジトリURLを確認します。一般的には、以下のような形式です：
+
+```bash
+# リポジトリURLの例（実際のURLに置き換えてください）
+BMAD_METHOD_REPO_URL="https://github.com/your-org/bmad-method.git"
+```
+
+### Step 2: サブモジュールとして追加
+
+```bash
+# プロジェクトルートで実行
+git submodule add ${BMAD_METHOD_REPO_URL} .bmad-method
+
+# サブモジュールを初期化
+git submodule update --init --recursive
+```
+
+### Step 3: BMad Methodのセットアップ
+
+BMad MethodのREADME.mdまたはセットアップガイドに従って、セットアップを完了してください。
+
+一般的なセットアップ手順：
+
+```bash
+# BMad Methodディレクトリに移動
+cd .bmad-method
+
+# セットアップスクリプトを実行（BMad Methodのドキュメントを参照）
+# 例: npm install や setup.sh など
+
+# プロジェクトルートに戻る
+cd ..
+```
+
+### Step 4: セットアップの確認
+
+BMad Methodが正しくセットアップされているか確認します：
+
+```bash
+# BMad Methodのワークフローファイルが存在するか確認
+ls -la .cursor/rules/bmad/workflows/
+
+# または、BMad Methodのドキュメントに記載されている確認方法を実行
+```
+
+BMad Methodのインストールが完了したら、以下の手順でBMad Custom Extensionsをセットアップできます。
 
 ---
 
@@ -104,6 +159,9 @@ ls -la .cursor/rules/bmad-custom/workflows/
 # - technical-spike.mdc
 # - performance-spike.mdc
 # - llm-integration-pattern-spike.mdc
+# - add-story-to-epic.mdc
+# - create-uat-scenario.mdc
+# - execute-uat.mdc
 
 # 実装ディレクトリの確認
 ls -la .bmad-custom/workflows/
@@ -213,7 +271,10 @@ npm run bmad-custom:install
 │               ├── hypothesis-validation-checklist.mdc
 │               ├── technical-spike.mdc
 │               ├── performance-spike.mdc
-│               └── llm-integration-pattern-spike.mdc
+│               ├── llm-integration-pattern-spike.mdc
+│               ├── add-story-to-epic.mdc
+│               ├── create-uat-scenario.mdc
+│               └── execute-uat.mdc
 ├── .bmad-custom/                    # プロジェクト固有の拡張（既存）
 │   └── workflows/
 │       ├── validate-mvp-scope/
@@ -277,10 +338,10 @@ git commit -m "Use develop branch of bmad-custom-extensions"
 
 ## 関連ドキュメント
 
-- [リポジトリ管理方式提案](../reports/repository-management-proposal.md)
+- [リポジトリ管理方式提案](./repository-management-proposal.md)
 - [BMad Custom Workflows 統合ガイド](./bmad-custom-workflows-integration.md)
 - [BMad Custom Workflows インストールガイド](./bmad-custom-installation-guide.md)
-- [BMad Method拡張ワークフロー実装計画](../reports/bmad-method-extension-plan.md)
+- [BMad Method拡張ワークフロー実装計画](./bmad-method-extension-plan.md)
 
 ---
 
