@@ -1,0 +1,38 @@
+---
+description: BMAD Custom Workflow: update-technical-debt-registry
+globs: 
+alwaysApply: false
+---
+
+name: update-technical-debt-registry
+description: "Update the technical debt registry after retrospective workflow execution. This workflow extracts technical debt from retrospective documents, updates the centralized technical debt registry, and updates the retrospective document to reference the registry."
+author: "BMad Custom"
+
+# Important: This workflow should be executed after the retrospective workflow (@.bmad/bmm/workflows/retrospective).
+# It ensures technical debt is centrally managed in docs/technical-debt-registry.md.
+
+# Critical variables from config (reuse existing bmm resources)
+config_source: "{project-root}/.bmad/bmm/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+sprint_artifacts: "{config_source}:sprint_artifacts"
+
+# Workflow components (placed under .bmad-custom)
+installed_path: "{project-root}/.bmad-custom/workflows/update-technical-debt-registry"
+instructions: "{installed_path}/instructions.md"
+technical_debt_entry_template: "{installed_path}/technical-debt-entry-template.md"
+retrospective_section_template: "{installed_path}/retrospective-section-template.md"
+
+# Variables and inputs
+variables:
+  technical_debt_registry: "{output_folder}/../technical-debt-registry.md || {project-root}/docs/technical-debt-registry.md"
+  retrospective_file: "" # Required, obtained from user (e.g., "docs/sprint-artifacts/epic-4-retrospective.md")
+  epic_number: "" # Required, obtained from user or extracted from retrospective_file
+  project_root: "{project-root}"
+
+# Reference to existing bmm resources
+bmm_template_reference: "{project-root}/.bmad/bmm/workflows/4-implementation/retrospective/template.md"
+
+standalone: true
