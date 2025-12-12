@@ -8,11 +8,25 @@ BMad Methodの欠点を補完するカスタムワークフローの拡張パッ
 
 ## 含まれるワークフロー
 
+### Phase 2: Planning（計画）フェーズ
+
 1. **validate-mvp-scope** - MVPスコープ検証ワークフロー
 2. **hypothesis-validation-checklist** - 仮説検証チェックリストワークフロー
+
+### Phase 2.5: Technical Prototyping（技術プロトタイピング）フェーズ
+
 3. **technical-spike** - 技術プロトタイピングワークフロー
 4. **performance-spike** - パフォーマンスSpikeワークフロー
 5. **llm-integration-pattern-spike** - LLM統合パターン検証ワークフロー
+
+### Phase 3: Solutioning（ソリューション設計）フェーズ
+
+6. **add-story-to-epic** - Epic末尾にStory追加ワークフロー
+
+### Phase 4: Implementation（実装）フェーズ
+
+7. **create-uat-scenario** - UATシナリオ作成ワークフロー
+8. **execute-uat** - UAT自動実行ワークフロー
 
 ## 前提条件
 
@@ -62,12 +76,41 @@ npm run bmad-custom:install
 │   │   ├── README.md
 │   │   └── checklist-template.md
 │   ├── technical-spike/
+│   │   ├── technical-spike.mdc
+│   │   ├── instructions.md
+│   │   ├── README.md
+│   │   └── spike-report-template.md
 │   ├── performance-spike/
-│   └── llm-integration-pattern-spike/
+│   │   ├── performance-spike.mdc
+│   │   ├── instructions.md
+│   │   ├── README.md
+│   │   └── performance-report-template.md
+│   ├── llm-integration-pattern-spike/
+│   │   ├── llm-integration-pattern-spike.mdc
+│   │   ├── instructions.md
+│   │   ├── README.md
+│   │   └── llm-pattern-report-template.md
+│   ├── add-story-to-epic/
+│   │   ├── add-story-to-epic.mdc
+│   │   ├── instructions.md
+│   │   ├── README.md
+│   │   └── story-template.md
+│   ├── create-uat-scenario/
+│   │   ├── create-uat-scenario.mdc
+│   │   ├── instructions.md
+│   │   ├── README.md
+│   │   ├── uat-plan-template.md
+│   │   └── verification-scenario-template.md
+│   └── execute-uat/
+│       ├── execute-uat.mdc
+│       ├── instructions.md
+│       ├── README.md
+│       └── uat-results-template.md
 ├── scripts/
 │   ├── install.sh
 │   └── install.js
-└── README.md
+├── README.md
+└── USAGE_GUIDE.md
 ```
 
 ## 更新方法
@@ -82,7 +125,18 @@ npm run bmad-custom:install
 
 ## 使用方法
 
-各ワークフローの使用方法は、各ワークフローのREADME.mdを参照してください。
+### クイックスタート
+
+詳細な使用方法は、[USAGE_GUIDE.md](./USAGE_GUIDE.md)を参照してください。
+
+各ワークフローの個別の使用方法は、各ワークフローのREADME.mdを参照してください。
+
+### ワークフローの実行タイミング
+
+- **Phase 2 (Planning)**: `hypothesis-validation-checklist`, `validate-mvp-scope`
+- **Phase 2.5 (Technical Prototyping)**: `technical-spike`, `performance-spike`, `llm-integration-pattern-spike`
+- **Phase 3 (Solutioning)**: `add-story-to-epic`
+- **Phase 4 (Implementation)**: `create-uat-scenario`, `execute-uat`
 
 ## ライセンス
 
@@ -95,6 +149,11 @@ MIT License
 ---
 
 **Document Revision History**
+
+- **Version 1.1.0 (2025-01-27)**: 既存ワークフローの追加
+  - add-story-to-epic、create-uat-scenario、execute-uatを追加
+  - USAGE_GUIDE.mdを追加
+  - README.mdを更新
 
 - **Version 1.0.0 (2025-01-27)**: 初版作成
   - 5つのワークフローの実装

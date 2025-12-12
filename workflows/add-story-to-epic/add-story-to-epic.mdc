@@ -1,0 +1,39 @@
+---
+description: BMAD Custom Workflow: add-story-to-epic
+globs: 
+alwaysApply: false
+---
+
+name: add-story-to-epic
+description: "Add a new story to the end of an epic (in-progress or completed). This workflow allows adding stories to epics after the initial create-epics-and-stories workflow, supporting requirement changes, technical debt resolution, and other post-initial-planning additions."
+author: "BMad Custom"
+
+# Important: Always create ONE story at a time, even if multiple stories are in backlog.
+# Check Prerequisites and respect dependency order. Complete the full lifecycle of one story before creating the next.
+
+# Critical variables from config (reuse existing bmm resources)
+config_source: "{project-root}/.bmad/bmm/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+sprint_artifacts: "{config_source}:sprint_artifacts"
+
+# Workflow components (placed under .bmad-custom)
+installed_path: "{project-root}/.bmad-custom/workflows/add-story-to-epic"
+instructions: "{installed_path}/instructions.md"
+template: "{installed_path}/story-template.md"
+
+# Variables and inputs
+variables:
+  sprint_status: "{sprint_artifacts}/sprint-status.yaml || {output_folder}/sprint-status.yaml"
+  epics_file: "{output_folder}/epics.md"
+  epic_number: "" # Required, obtained from user
+  story_content: "" # Obtained from user (user story, acceptance criteria, technical notes)
+  story_reason: "" # Reason for adding story (requirement change, technical debt, bug fix, etc.)
+  technical_debt_id: "" # Optional, technical debt management number (e.g., TD-001)
+
+# Reference to existing bmm resources for template patterns
+bmm_template_reference: "{project-root}/.bmad/bmm/workflows/4-implementation/create-story/template.md"
+
+standalone: true
