@@ -109,6 +109,12 @@ npm run bmad-custom:install
 ├── scripts/
 │   ├── install.sh
 │   └── install.js
+├── .guide/
+│   ├── README.md
+│   ├── bmad-custom-installation-guide.md
+│   ├── bmad-custom-setup-guide.md
+│   ├── bmad-custom-workflows-integration.md
+│   └── [その他のガイドドキュメント]
 ├── README.md
 └── USAGE_GUIDE.md
 ```
