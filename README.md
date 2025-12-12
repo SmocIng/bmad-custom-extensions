@@ -27,6 +27,7 @@ BMad Methodの欠点を補完するカスタムワークフローの拡張パッ
 
 7. **create-uat-scenario** - UATシナリオ作成ワークフロー
 8. **execute-uat** - UAT自動実行ワークフロー
+9. **update-technical-debt-registry** - 技術的負債レジストリ更新ワークフロー
 
 ## 前提条件
 
@@ -124,6 +125,12 @@ npm run bmad-custom:install
 │       ├── instructions.md
 │       ├── README.md
 │       └── uat-results-template.md
+│   └── update-technical-debt-registry/
+│       ├── update-technical-debt-registry.mdc
+│       ├── instructions.md
+│       ├── README.md
+│       ├── technical-debt-entry-template.md
+│       └── retrospective-section-template.md
 ├── scripts/
 │   ├── install.sh
 │   └── install.js
@@ -169,7 +176,7 @@ npm run bmad-custom:install
 - **Phase 2 (Planning)**: `hypothesis-validation-checklist`, `validate-mvp-scope`
 - **Phase 2.5 (Technical Prototyping)**: `technical-spike`, `performance-spike`, `llm-integration-pattern-spike`
 - **Phase 3 (Solutioning)**: `add-story-to-epic`
-- **Phase 4 (Implementation)**: `create-uat-scenario`, `execute-uat`
+- **Phase 4 (Implementation)**: `create-uat-scenario`, `execute-uat`, `update-technical-debt-registry`
 
 ## ライセンス
 
@@ -182,6 +189,10 @@ MIT License
 ---
 
 **Document Revision History**
+
+- **Version 1.2.0 (2025-01-27)**: 技術的負債レジストリ更新ワークフローの追加
+  - update-technical-debt-registryワークフローを追加
+  - retrospective-workflow-extension.mdを完全なワークフローとして実装
 
 - **Version 1.1.0 (2025-01-27)**: 既存ワークフローの追加
   - add-story-to-epic、create-uat-scenario、execute-uatを追加
