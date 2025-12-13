@@ -110,6 +110,20 @@ fix/bug                  # 説明が曖昧
 
 コミットメッセージは、[Conventional Commits](https://www.conventionalcommits.org/) の規約に従ってください。
 
+### コミットメッセージテンプレートの使用
+
+プロジェクトにはコミットメッセージテンプレート（`.gitmessage`）が用意されています。以下のコマンドで設定できます：
+
+```bash
+# グローバル設定（すべてのリポジトリに適用）
+git config --global commit.template .gitmessage
+
+# ローカル設定（このリポジトリのみに適用）
+git config commit.template .gitmessage
+```
+
+テンプレートを使用すると、コミット時にエディタにテンプレートが表示され、形式に従って記入しやすくなります。
+
 ### 形式
 
 ```
@@ -178,6 +192,12 @@ docs(readme): update installation instructions
 Add BMad Method installation prerequisites to the README.
 ```
 
+### テンプレートファイル
+
+- **コミットメッセージテンプレート**: `.gitmessage`
+  - プロジェクトルートに配置されています
+  - BMADワークフローからも参照可能です
+
 ---
 
 ## Pull Requestの作成
@@ -208,12 +228,18 @@ Add BMad Method installation prerequisites to the README.
    ```
 
 2. **GitHubでPRを作成**
-   - テンプレートに従って記入
+   - PRテンプレート（`.github/pull_request_template.md`）に従って記入
    - 関連するIssueをリンク
    - レビュアーを指定（該当する場合）
 
 3. **チェックリストを確認**
    - PRテンプレートのチェックリストをすべて確認
+
+### PRテンプレート
+
+PRテンプレートは `.github/pull_request_template.md` に配置されています。GitHubでPRを作成すると、自動的にこのテンプレートが表示されます。
+
+BMADワークフローからPRを作成する際も、このテンプレートを参照してください。
 
 ### PRのレビュー
 
@@ -225,6 +251,10 @@ Add BMad Method installation prerequisites to the README.
 
 ## Issueの報告
 
+### Issueテンプレートの使用
+
+GitHubでIssueを作成する際は、適切なテンプレートを使用してください。テンプレートは `.github/ISSUE_TEMPLATE/` ディレクトリに配置されています。
+
 ### バグレポート
 
 1. **既存のIssueを確認**
@@ -232,6 +262,7 @@ Add BMad Method installation prerequisites to the README.
 
 2. **Issueテンプレートを使用**
    - `.github/ISSUE_TEMPLATE/bug_report.md` を使用
+   - GitHub上でIssueを作成すると、自動的にテンプレートが表示されます
 
 3. **必要な情報を提供**
    - 再現手順
@@ -243,6 +274,7 @@ Add BMad Method installation prerequisites to the README.
 
 1. **Issueテンプレートを使用**
    - `.github/ISSUE_TEMPLATE/feature_request.md` を使用
+   - GitHub上でIssueを作成すると、自動的にテンプレートが表示されます
 
 2. **詳細な説明を提供**
    - 機能の概要と動機
@@ -253,10 +285,23 @@ Add BMad Method installation prerequisites to the README.
 
 1. **Issueテンプレートを使用**
    - `.github/ISSUE_TEMPLATE/question.md` を使用
+   - GitHub上でIssueを作成すると、自動的にテンプレートが表示されます
 
 2. **関連情報を提供**
    - 試したこと
    - 関連するワークフローやドキュメント
+
+### 利用可能なテンプレート
+
+以下のテンプレートが利用可能です：
+
+- **バグレポート**: `.github/ISSUE_TEMPLATE/bug_report.md`
+- **機能要望**: `.github/ISSUE_TEMPLATE/feature_request.md`
+- **質問**: `.github/ISSUE_TEMPLATE/question.md`
+- **Pull Request**: `.github/pull_request_template.md`
+- **コミットメッセージ**: `.gitmessage`
+
+BMADワークフローからIssueやPRを作成する際も、これらのテンプレートを参照してください。
 
 ---
 
