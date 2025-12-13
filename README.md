@@ -202,6 +202,26 @@ MIT License
 
 プルリクエストやイシューの報告を歓迎します。
 
+貢献方法の詳細については、[CONTRIBUTING.md](./CONTRIBUTING.md)を参照してください。
+
+### クイックガイド
+
+- **バグ報告**: [Issueを作成](https://github.com/SmocIng/bmad-custom-extensions/issues/new?template=bug_report.md)
+- **機能提案**: [Issueを作成](https://github.com/SmocIng/bmad-custom-extensions/issues/new?template=feature_request.md)
+- **Pull Request**: [CONTRIBUTING.md](./CONTRIBUTING.md)のガイドラインに従って作成
+
+### ブランチ命名規則
+
+新しいブランチを作成する際は、以下の形式に従ってください：
+
+```
+<type>/<short-description>
+```
+
+例: `feature/add-new-workflow`, `fix/workflow-error`, `docs/update-readme`
+
+詳細は[CONTRIBUTING.md](./CONTRIBUTING.md#ブランチ命名規則)を参照してください。
+
 ---
 
 **Document Revision History**

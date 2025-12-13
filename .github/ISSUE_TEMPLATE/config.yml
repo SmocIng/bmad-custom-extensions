@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+contact_links:
+  - name: ドキュメント
+    url: https://github.com/SmocIng/bmad-custom-extensions#readme
+    about: 使用方法やドキュメントを確認してください
+  - name: 使用ガイド
+    url: https://github.com/SmocIng/bmad-custom-extensions/blob/main/USAGE_GUIDE.md
+    about: カスタムワークフローの使用ガイドを参照してください
+
