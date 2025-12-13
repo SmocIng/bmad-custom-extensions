@@ -25,7 +25,7 @@ function log(message, color = 'reset') {
 // スクリプトのディレクトリを取得
 const scriptDir = __dirname;
 const repoRoot = path.resolve(scriptDir, '..');
-const projectRoot = path.resolve(repoRoot, '..', '..');
+const projectRoot = path.resolve(repoRoot, '..');
 
 // ターゲットディレクトリ
 const targetDir = path.join(projectRoot, '.cursor', 'rules', 'bmad-custom', 'workflows');
